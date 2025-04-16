@@ -15,3 +15,5 @@ The file structure is as follows:
 - README.md   (this file)
 
 The scripts to generate relevant artifacts are in https://github.com/pytorch/pytorch/tree/main/scripts/release_notes.
+
+This repo is BSD-3 licensed, see LICENSE for details.
