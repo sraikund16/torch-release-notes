@@ -4,6 +4,11 @@ Welcome to the Pool of Miscategorized commits.
 Add any commits that were miscategorized for your domain below.
 Handle any commits that actually do belong to your domain and remove them from this list.
 
+## Compiled Autograd
+- [ca] default on in CI, with fallback for tests in test/compiled_autograd_skips/ ([#155480](https://github.com/pytorch/pytorch/pull/155480))
+
+
+
 - [partitioner] always ban compiler-driven recompute of collectives by default ([#147561](https://github.com/pytorch/pytorch/pull/147561))
 - Support subclass constructor capturing in export ([#147014](https://github.com/pytorch/pytorch/pull/147014))
 - [AOTI][reland] Update test runner to use the new APIs ([#149412](https://github.com/pytorch/pytorch/pull/149412))
