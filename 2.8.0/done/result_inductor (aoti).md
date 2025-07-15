@@ -29,38 +29,35 @@ The categories below are as follows:
 ### new features
 - Torchbind objects supported in AOTInductor ([#150196](https://github.com/pytorch/pytorch/pull/150196), [#154265](https://github.com/pytorch/pytorch/pull/154265))
 ### improvements
-- [MPS] Implement backward pass for interpolate_trilinear ([#156373](https://github.com/pytorch/pytorch/pull/156373))
-- Add _weight_int4pack_mm to the C shim fallback list ([#151059](https://github.com/pytorch/pytorch/pull/151059))
+- Add weight_int4pack_mm_with_scales_and_zeros and upsample_trilinear3d_backward c-shim for MPS ([#155780](https://github.com/pytorch/pytorch/pull/155780), [#156373](https://github.com/pytorch/pytorch/pull/156373))
+- Add permute/squueze/abs/aten.hann_window/narrow/_weight_int4pack_mm/fill\_ /pad in c-shim fallback ops ([#154251](https://github.com/pytorch/pytorch/pull/154251), [#156496](https://github.com/pytorch/pytorch/pull/156496), [#151059](https://github.com/pytorch/pytorch/pull/151059), [#156245](https://github.com/pytorch/pytorch/pull/156245), [#155226](https://github.com/pytorch/pytorch/pull/155226))
 - Add RECORD_FUNCTION for AOTI ([#150150](https://github.com/pytorch/pytorch/pull/150150))
 ### bug fixes
+- Fix AOTI update_constant_buffer issue. ([#149243](https://github.com/pytorch/pytorch/pull/149243))
+- Fix a memory leak in model_package_loader ([#152334](https://github.com/pytorch/pytorch/pull/152334))
+- Don't alloc weights in AOTIModel if they don't exist ([#152692](https://github.com/pytorch/pytorch/pull/152692))
+- Fix state of ConstantFolding ([#153152](https://github.com/pytorch/pytorch/pull/153152))
+- Fix index offset for Optional Tensor Return ([#155073](https://github.com/pytorch/pytorch/pull/155073))
+- Fix float8 type printing for min/max value printing ([#154466](https://github.com/pytorch/pytorch/pull/154466))
 ### performance
 ### docs
 ### devs
+- Refactor AOTInductor runtime API for Intel GPU. ([#153929](https://github.com/pytorch/pytorch/pull/153929))
+- Improve stable library APIs ([#152040](https://github.com/pytorch/pytorch/pull/152040))
+- Add a basic shim and stable::Tensor is_contiguous API ([#156228](https://github.com/pytorch/pytorch/pull/156228))
 ### Untopiced
-- Fix AOTI update_constant_buffer issue. ([#149243](https://github.com/pytorch/pytorch/pull/149243))
-- Improve stable library apis per Scott's feedback ([#152040](https://github.com/pytorch/pytorch/pull/152040))
-- [AOTInductor] Inherit Buffer if not being updated ([#152092](https://github.com/pytorch/pytorch/pull/152092))
-- [AOTI] Fix a memory leak in model_package_loader ([#152334](https://github.com/pytorch/pytorch/pull/152334))
-- [aotinductor] Don't alloc weights if they don't exist ([#152692](https://github.com/pytorch/pytorch/pull/152692))
-- [AOTInductor] Fix state of ConstantFolding ([#153152](https://github.com/pytorch/pytorch/pull/153152))
-- [AOTI][XPU] Refactor AOTInductor runtime API for Intel GPU. ([#153929](https://github.com/pytorch/pytorch/pull/153929))
-- [AOTI][refactor] Fix an anonymous namespace issue ([#154033](https://github.com/pytorch/pytorch/pull/154033))
+
+
+### not user facing
 - [3/n][Optimus][Auto-AC][reland] Support any fp8 quantization type and set scaling as the default" ([#154057](https://github.com/pytorch/pytorch/pull/154057))
-- Use get_device_context in aoti runtime for XPU directly ([#154360](https://github.com/pytorch/pytorch/pull/154360))
-- Add new ops in fallback ops ([#154251](https://github.com/pytorch/pytorch/pull/154251))
 - [4/n][Optimus][Auto-AC] Expose the config to skip the dynamo gaurds to avoid recompile ([#154152](https://github.com/pytorch/pytorch/pull/154152))
-- [debug_printer][BE] Fix float8 type printing for min/max value printing ([#154466](https://github.com/pytorch/pytorch/pull/154466))
+- [PT2]Add weight and constant config path template ([#156359](https://github.com/pytorch/pytorch/pull/156359))
+- Use get_device_context in aoti runtime for XPU directly ([#154360](https://github.com/pytorch/pytorch/pull/154360))
 - Move c10/macros/Export.h to torch/standalone ([#154850](https://github.com/pytorch/pytorch/pull/154850))
-- [ez][AOTI] Fix index offset for Optional Tensor Return ([#155073](https://github.com/pytorch/pytorch/pull/155073))
-- Add C shim for at::pad and fix some typos ([#155226](https://github.com/pytorch/pytorch/pull/155226))
-- [AOTI] Enable OP `test__weight_int4pack_mm_with_scales_and_zeros` in AOTI. ([#155780](https://github.com/pytorch/pytorch/pull/155780))
 - [BE][AOTI] Combine DynamicArgType in Proxy Executors ([#155871](https://github.com/pytorch/pytorch/pull/155871))
 - [aoti] Add more to error message ([#155974](https://github.com/pytorch/pytorch/pull/155974))
-- Add a basic shim and stable::Tensor is_contiguous API ([#156228](https://github.com/pytorch/pytorch/pull/156228))
-- Add C shim fallback for fill_ ([#156245](https://github.com/pytorch/pytorch/pull/156245))
-- [PT2]Add weight and constant config path template ([#156359](https://github.com/pytorch/pytorch/pull/156359))
-- Add shim fallback for narrow ([#156496](https://github.com/pytorch/pytorch/pull/156496))
-### not user facing
+- Fix an anonymous namespace warning ([#154033](https://github.com/pytorch/pytorch/pull/154033))
+- Inherit Buffer if not being updated ([#152092](https://github.com/pytorch/pytorch/pull/152092))
 - [AOTI][reland] Remove typedef for half and bfloat16 ([#151109](https://github.com/pytorch/pytorch/pull/151109))
 - [AOTI] Embed cubin files into .so ([#150739](https://github.com/pytorch/pytorch/pull/150739))
 - [Lint] Update clang-format to 19.1.4 ([#153889](https://github.com/pytorch/pytorch/pull/153889))
