@@ -1,5 +1,5 @@
 
-# Release Notes worksheet profiler
+# Release Notes worksheet Profiler
 
 The main goal of this process is to rephrase all the commit messages below to make them **clear and easy to read** by the end user. You should follow the following instructions to do so:
 
@@ -23,32 +23,36 @@ The categories below are as follows:
 * Developers: All commits that are not end-user facing but still impact people that compile from source, develop into pytorch, extend pytorch, etc
 * not user facing: All commits that are not public end-user facing and hence should be dropped from the release notes
 
-## profiler
+## Profiler
 ### bc breaking
 ### deprecation
 ### new features
-### improvements
-### bug fixes
-- [Profiler] Fix Empty C Call Queue ([#150370](https://github.com/pytorch/pytorch/pull/150370))
-- [Profiler] Fix Empty C Call Queue ([#150370](https://github.com/pytorch/pytorch/pull/150370))
-- [Profiler] Remove Decref From Python Context ([#151625](https://github.com/pytorch/pytorch/pull/151625))
 - [Memory Snapshot] Add Flag to Toggle Global and Local Callbacks for Annotations ([#154932](https://github.com/pytorch/pytorch/pull/154932))
+- [Profiler] Pass Overload Names To Kineto ([#149333](https://github.com/pytorch/pytorch/pull/149333))
+- [Memory Snapshot/Profiler] Memory Snapshot On Demand ([#150559](https://github.com/pytorch/pytorch/pull/150559))
+- [Memory Visualizer] Add PT2 Compile Context to Visualizer ([#152862](https://github.com/pytorch/pytorch/pull/152862))
+- [Memento] Add PT2 to Memory Snapshot ([#152707](https://github.com/pytorch/pytorch/pull/152707))
+- [Profiler][HPU] Enable Profiler.key_averages().table() for HPU devices ([#150770](https://github.com/pytorch/pytorch/pull/150770))
+
+### improvements
+- [Profiler] Set Duration to -1 for unfinished CPU events ([#150131](https://github.com/pytorch/pytorch/pull/150131))
+- [Memory Visualizer] Start at index with most events ([#154571](https://github.com/pytorch/pytorch/pull/154571))
+- [Memory Snapshot] Remove compile_context handle even if compile_context not set ([#154664](https://github.com/pytorch/pytorch/pull/154664))
+- [Profiler] Remove temp flag for on-demand Memory Snapshot ([#151068](https://github.com/pytorch/pytorch/pull/151068))
+
+
+### bug fixes
+- [Profiler] Fix Empty C Call Queue in Python Tracer ([#150370](https://github.com/pytorch/pytorch/pull/150370))
+- [Profiler] Remove Decref From Python Context in Python Tracer ([#151625](https://github.com/pytorch/pytorch/pull/151625))
 - [Profiler] Induce Inductor Import before Profiling ([#155243](https://github.com/pytorch/pytorch/pull/155243))
+- [Profiler] CUPTI_LAZY_REINIT disable skipped for cuda >= 12.6 ([#151124](https://github.com/pytorch/pytorch/pull/151124))
+- [Profiler] Change 'b' to 'B' in FunctionEvent Frontend ([#156250](https://github.com/pytorch/pytorch/pull/156250))
+- [Profiler] Enable all configured activities in CUPTI Range Profiler mode ([#154749](https://github.com/pytorch/pytorch/pull/154749))
+
+
 ### performance
 ### docs
 ### devs
 ### Untopiced
-- [Profiler/Easy] Pass Overload Names To Kineto ([#149333](https://github.com/pytorch/pytorch/pull/149333))
-- [Easy/Profiler] Set Duration to -1 for unfinished CPU events ([#150131](https://github.com/pytorch/pytorch/pull/150131))
-- [submodule] [Snapshot/Profiler] Memory Snapshot On Demand ([#150559](https://github.com/pytorch/pytorch/pull/150559))
-- [profiler][retry] don't disable CUPTI_LAZY_REINIT for cuda >= 12.6 ([#151124](https://github.com/pytorch/pytorch/pull/151124))
-- [Memory Viz] Add Compile Context to Visualizer ([#152862](https://github.com/pytorch/pytorch/pull/152862))
-- [Memento] Add PT2 to Memory Snapshot ([#152707](https://github.com/pytorch/pytorch/pull/152707))
-- [Visualizer] Start at index with most events ([#154571](https://github.com/pytorch/pytorch/pull/154571))
-- [EZ/Memory Snapshot] Remove Handle even if compile_context not set ([#154664](https://github.com/pytorch/pytorch/pull/154664))
-- [EZ/Profiler] Change 'b' to 'B' in FunctionEvent Frontend ([#156250](https://github.com/pytorch/pytorch/pull/156250))
 ### not user facing
-- [Profiler][HPU] Enable profiler.key_averages().table() for HPU devices ([#150770](https://github.com/pytorch/pytorch/pull/150770))
-- [Profiler/Easy] Remove temp flag for on-demand Memory Snapshot ([#151068](https://github.com/pytorch/pytorch/pull/151068))
-- [profiler] Enable all configured activities in CUPTI Range profiler mode ([#154749](https://github.com/pytorch/pytorch/pull/154749))
 ### security
