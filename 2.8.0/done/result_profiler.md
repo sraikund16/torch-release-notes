@@ -37,7 +37,7 @@ The categories below are as follows:
 ### improvements
 - Set Duration to -1 for unfinished CPU events ([#150131](https://github.com/pytorch/pytorch/pull/150131))
 - Start at index with most events ([#154571](https://github.com/pytorch/pytorch/pull/154571))
-- Remove `compile_context` handle even if compile_context not set ([#154664](https://github.com/pytorch/pytorch/pull/154664))
+- Remove `compile_context` handle even if `compile_context` not set ([#154664](https://github.com/pytorch/pytorch/pull/154664))
 - Remove temp flag for on-demand Memory Snapshot ([#151068](https://github.com/pytorch/pytorch/pull/151068))
 
 
