@@ -1,4 +1,4 @@
-# PyTorch X.x.x Release Notes
+# PyTorch 2.8.0 Release Notes
 - [Highlights](#highlights)
 - [Backwards Incompatible Changes](#backwards-incompatible-changes)
 - [Deprecations](#deprecations)
@@ -58,6 +58,7 @@ Version 2.7.0
 torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ```
 
+
 # New features
 
 ## Release Engineering
@@ -97,20 +98,20 @@ torch.onnx.export(model, args, kwargs=kwargs, dynamo=True)
 ## Lazy Tensor
 ## torch.package
 
+
 # Improvements
 <same ordering as in new features>
 
 # Bug fixes
 <same ordering as in new features>
 
+
 # Performance
 <same ordering as in new features>
+
 
 # Documentation
 <same ordering as in new features>
 
 # Security
-<same ordering as in new features>
-
-# Developers
 <same ordering as in new features>

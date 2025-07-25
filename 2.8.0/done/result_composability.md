@@ -27,51 +27,51 @@ The categories below are as follows:
 ### bc breaking
 - Fix `evaluate_expr` to include `suppress_guards_tls` in cache key ([#152661](https://github.com/pytorch/pytorch/pull/152661))
 
-Prior to 2.8 it was possible for a guard on a symbolic shape to be incorrectly
-omitted if the symbolic shape evaluation was previously tested with guards
-suppressed (this often happens within the compiler itself). This has been fixed
-in 2.8 and usually will just silently "do the right thing" and add the correct
-guard but if the new guard causes a tensor marked with `mark_dynamic` to become
-specialized then it can result in an error. One workaround is to use
-`maybe_mark_dynamic` instead of `mark_dynamic`.
+  Prior to 2.8 it was possible for a guard on a symbolic shape to be incorrectly
+  omitted if the symbolic shape evaluation was previously tested with guards
+  suppressed (this often happens within the compiler itself). This has been fixed
+  in 2.8 and usually will just silently "do the right thing" and add the correct
+  guard but if the new guard causes a tensor marked with `mark_dynamic` to become
+  specialized then it can result in an error. One workaround is to use
+  `maybe_mark_dynamic` instead of `mark_dynamic`.
 
-See the discussion in issue [#157921](https://github.com/pytorch/pytorch/issues/157921).
+  See the discussion in issue [#157921](https://github.com/pytorch/pytorch/issues/157921).
 
-Version 2.7.0
-```
-import torch
+  Version 2.7.0
+  ```
+  import torch
+  
+  embed = torch.randn(2, 8192)
+  x = torch.zeros(8192)
+  
+  torch._dynamo.mark_dynamic(x, 0)
+  
+  @torch.compile
+  def f(embedding_indices, x):
+      added_tokens_mask = torch.where(x > 10000, 1, 0)
+      ei = torch.narrow(embedding_indices, 1, 0, x.size(0))
+      return ei.clone()
+  
+  f(embed, x)
+  ```
 
-embed = torch.randn(2, 8192)
-x = torch.zeros(8192)
-
-torch._dynamo.mark_dynamic(x, 0)
-
-@torch.compile
-def f(embedding_indices, x):
-    added_tokens_mask = torch.where(x > 10000, 1, 0)
-    ei = torch.narrow(embedding_indices, 1, 0, x.size(0))
-    return ei.clone()
-
-f(embed, x)
-```
-
-Version 2.8.0
-```
-import torch
-
-embed = torch.randn(2, 8192)
-x = torch.zeros(8192)
-
-torch._dynamo.maybe_mark_dynamic(x, 0)
-
-@torch.compile
-def f(embedding_indices, x):
-    added_tokens_mask = torch.where(x > 10000, 1, 0)
-    ei = torch.narrow(embedding_indices, 1, 0, x.size(0))
-    return ei.clone()
-
-f(embed, x)
-```
+  Version 2.8.0
+  ```
+  import torch
+  
+  embed = torch.randn(2, 8192)
+  x = torch.zeros(8192)
+  
+  torch._dynamo.maybe_mark_dynamic(x, 0)
+  
+  @torch.compile
+  def f(embedding_indices, x):
+      added_tokens_mask = torch.where(x > 10000, 1, 0)
+      ei = torch.narrow(embedding_indices, 1, 0, x.size(0))
+      return ei.clone()
+  
+  f(embed, x)
+  ```
 
 ### deprecation
 ### new features
@@ -85,6 +85,7 @@ f(embed, x)
 - Avoid overflow in `torch.norm` for scalar input ([#144073](https://github.com/pytorch/pytorch/pull/144073))
 ### performance
 ### docs
+- Add docblocks for several functions related to dynamic shapes ([#154374](https://github.com/pytorch/pytorch/pull/154374), [#154375](https://github.com/pytorch/pytorch/pull/154375), [#154376](https://github.com/pytorch/pytorch/pull/154376), [#154386](https://github.com/pytorch/pytorch/pull/154386), [#154401](https://github.com/pytorch/pytorch/pull/154401), [#154404](https://github.com/pytorch/pytorch/pull/154404), [#154405](https://github.com/pytorch/pytorch/pull/154405), [#154377](https://github.com/pytorch/pytorch/pull/154377), [#154378](https://github.com/pytorch/pytorch/pull/154378), [#154379](https://github.com/pytorch/pytorch/pull/154379), [#154380](https://github.com/pytorch/pytorch/pull/154380), [#154381](https://github.com/pytorch/pytorch/pull/154381), [#154383](https://github.com/pytorch/pytorch/pull/154383), [#154384](https://github.com/pytorch/pytorch/pull/154384), [#154385](https://github.com/pytorch/pytorch/pull/154385), [#154402](https://github.com/pytorch/pytorch/pull/154402), [#154403](https://github.com/pytorch/pytorch/pull/154403), [#154400](https://github.com/pytorch/pytorch/pull/154400), [#154398](https://github.com/pytorch/pytorch/pull/154398), [#154396](https://github.com/pytorch/pytorch/pull/154396), [#154399](https://github.com/pytorch/pytorch/pull/154399), [#154397](https://github.com/pytorch/pytorch/pull/154397))
 ### devs
 - Allow duck typing for 0/1 ([#150222](https://github.com/pytorch/pytorch/pull/150222))
 - Introduce `sym_and` and `sym_or` ([#150456](https://github.com/pytorch/pytorch/pull/150456))
@@ -100,7 +101,6 @@ f(embed, x)
 - Use `guard_or_false` for `cat` and `repeat` ([#155290](https://github.com/pytorch/pytorch/pull/155290))
 - Skip fused linear path if not definitely contiguous ([#155051](https://github.com/pytorch/pytorch/pull/155051))
 - Use try-catch instead of guard_or_true for reshape_view_helper ([#152638](https://github.com/pytorch/pytorch/pull/152638))
-- Add docblocks for several functions related to dynamic shapes ([#154374](https://github.com/pytorch/pytorch/pull/154374), [#154375](https://github.com/pytorch/pytorch/pull/154375), [#154376](https://github.com/pytorch/pytorch/pull/154376), [#154386](https://github.com/pytorch/pytorch/pull/154386), [#154401](https://github.com/pytorch/pytorch/pull/154401), [#154404](https://github.com/pytorch/pytorch/pull/154404), [#154405](https://github.com/pytorch/pytorch/pull/154405), [#154377](https://github.com/pytorch/pytorch/pull/154377), [#154378](https://github.com/pytorch/pytorch/pull/154378), [#154379](https://github.com/pytorch/pytorch/pull/154379), [#154380](https://github.com/pytorch/pytorch/pull/154380), [#154381](https://github.com/pytorch/pytorch/pull/154381), [#154383](https://github.com/pytorch/pytorch/pull/154383), [#154384](https://github.com/pytorch/pytorch/pull/154384), [#154385](https://github.com/pytorch/pytorch/pull/154385), [#154402](https://github.com/pytorch/pytorch/pull/154402), [#154403](https://github.com/pytorch/pytorch/pull/154403), [#154400](https://github.com/pytorch/pytorch/pull/154400), [#154398](https://github.com/pytorch/pytorch/pull/154398), [#154396](https://github.com/pytorch/pytorch/pull/154396), [#154399](https://github.com/pytorch/pytorch/pull/154399), [#154397](https://github.com/pytorch/pytorch/pull/154397))
 
 ### Untopiced
 
