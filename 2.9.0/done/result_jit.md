@@ -41,7 +41,6 @@ The categories below are as follows:
 - [BE][8/16] fix typos in torch/ (torch/csrc/jit/) ([#156318](https://github.com/pytorch/pytorch/pull/156318))
 - [BE][10/16] fix typos in torch/ (torch/csrc/jit/) ([#156320](https://github.com/pytorch/pytorch/pull/156320))
 - [nativert] Add OSS version of ModelRunner ([#159268](https://github.com/pytorch/pytorch/pull/159268))
-- [ROCm] Fix resource_strings.h ([#159996](https://github.com/pytorch/pytorch/pull/159996))
 - added stubs for jit tree views ([#156504](https://github.com/pytorch/pytorch/pull/156504))
 - Remove ts to export retracer ([#156857](https://github.com/pytorch/pytorch/pull/156857))
 - [BE][12/16] fix typos in torch/ ([#156602](https://github.com/pytorch/pytorch/pull/156602))
