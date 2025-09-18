@@ -25,10 +25,9 @@ The categories below are as follows:
 
 ## package/deploy
 ### bc breaking
+- [BE] Remove torch deploy | remove torch deploy specific files ([#158290](https://github.com/pytorch/pytorch/pull/158290))
+With the [deprecation of multipy](https://github.com/meta-pytorch/multipy), we are removing support for the library in PyTorch. This includes removal of ultilites which only supported torch_deploy like the `Freezer` class and the deploy debugger.
 ### deprecation
-- [BE] Remove torch deploy | remove torch deploy specific files ([#158290](https://github.com/pytorch/pytorch/pull/158290))
-- [BE] Remove torch deploy | remove torch deploy specific files ([#158290](https://github.com/pytorch/pytorch/pull/158290))
-- [BE] Remove torch deploy | remove torch deploy specific files ([#158290](https://github.com/pytorch/pytorch/pull/158290))
 ### new features
 ### improvements
 ### bug fixes
@@ -37,5 +36,4 @@ The categories below are as follows:
 ### devs
 ### Untopiced
 ### not user facing
-- Fix Pandas version mismatch upon reinstalling numpy ([#158584](https://github.com/pytorch/pytorch/pull/158584))
 ### security
