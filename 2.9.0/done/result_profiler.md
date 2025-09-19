@@ -27,23 +27,23 @@ The categories below are as follows:
 ### bc breaking
 ### deprecation
 ### new features
-- [Profiler] Add GC Events to Python Stack Tracer ([#161209](https://github.com/pytorch/pytorch/pull/161209))
+- Add GC Events to Python Stack Tracer ([#161209](https://github.com/pytorch/pytorch/pull/161209))
+- Add a custom profiler configuration option ([#151656](https://github.com/pytorch/pytorch/pull/151656))
 ### improvements
+- Add more CUDA API for kernel launcher ([#156016](https://github.com/pytorch/pytorch/pull/156016))
+- Allow Custom Time Unit When Printing Profiler Table ([#157913](https://github.com/pytorch/pytorch/pull/157913))
+- Update CUDA runtime kernel identification logic ([#157890](https://github.com/pytorch/pytorch/pull/157890))
 ### bug fixes
-- [Memory Snapshot] Fix Linter for Global Annotations flag in Snapshot ([#157858](https://github.com/pytorch/pytorch/pull/157858))
+- Fix Linter for Global Annotations flag in Snapshot ([#157858](https://github.com/pytorch/pytorch/pull/157858))
 ### performance
 ### docs
-- [Docs] Update PT2 Profiler Torch-Compiled Region Image ([#158066](https://github.com/pytorch/pytorch/pull/158066))
+- Update PT2 Profiler Torch-Compiled Region Image ([#158066](https://github.com/pytorch/pytorch/pull/158066))
+- Fix Experimental Config Documentatation([#156586](https://github.com/pytorch/pytorch/pull/156586))
+- Update README ([#159816](https://github.com/pytorch/pytorch/pull/159816))
 ### devs
 ### Untopiced
-- Add a custom profiler configuration option ([#151656](https://github.com/pytorch/pytorch/pull/151656))
-- [profiler] add more CUDA API for kernel launcher ([#156016](https://github.com/pytorch/pytorch/pull/156016))
-- Allow Custom Time Unit When Printing Profiler Table ([#157913](https://github.com/pytorch/pytorch/pull/157913))
-- [profiler] update CUDA runtime kernel identification logic ([#157890](https://github.com/pytorch/pytorch/pull/157890))
 ### not user facing
-- [MemoryViz] Add file selector button ([#157647](https://github.com/pytorch/pytorch/pull/157647))
-- [Easy][Profiler] Fix pattern matcher of profiler ([#157711](https://github.com/pytorch/pytorch/pull/157711))
-- [Profiler] the doc of _ExperimentalConfig is incorrectly truncated by commas ([#156586](https://github.com/pytorch/pytorch/pull/156586))
-- [Profiler] Fix unexpected C return events ([#159574](https://github.com/pytorch/pytorch/pull/159574))
-- [Profiler] Update README ([#159816](https://github.com/pytorch/pytorch/pull/159816))
+- Add file selector button ([#157647](https://github.com/pytorch/pytorch/pull/157647))
+- Fix pattern matcher of profiler ([#157711](https://github.com/pytorch/pytorch/pull/157711))
+- Fix unexpected C return events ([#159574](https://github.com/pytorch/pytorch/pull/159574))
 ### security
