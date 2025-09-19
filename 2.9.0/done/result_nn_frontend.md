@@ -28,21 +28,24 @@ The categories below are as follows:
 ### deprecation
 ### new features
 ### improvements
-- Allow register_buffer with Tensor-like object ([#159455](https://github.com/pytorch/pytorch/pull/159455))
+- Allow `register_buffer` with `Tensor`-like objects ([#159455](https://github.com/pytorch/pytorch/pull/159455))
+- Improve error message for unsupported padding configurations ([#160866](https://github.com/pytorch/pytorch/pull/160866))
+- Validate target is 0D when input is 1D in `NLLLoss` ([#161412](https://github.com/pytorch/pytorch/pull/161412))
+
 ### bug fixes
-- [CUDA] Fix missing `__syncthreads` in MultiMarginLoss backward ([#158994](https://github.com/pytorch/pytorch/pull/158994))
 ### performance
 ### docs
-- [BE] Make torch.nn.modules.* satisfy the docs coverage test ([#158491](https://github.com/pytorch/pytorch/pull/158491))
-- [BE] More torch.nn docs coverage test (except for torch.nn.parallel) ([#158654](https://github.com/pytorch/pytorch/pull/158654))
-- Fix the Doc of `padding` in `avg_poolnd` ([#159142](https://github.com/pytorch/pytorch/pull/159142))
+- Improve description of `padding` for `avg_poolnd` ([#159142](https://github.com/pytorch/pytorch/pull/159142))
+- Improve CrossEntropyLoss docs with example of incorrect target specification ([#155649](https://github.com/pytorch/pytorch/pull/155649))
+- Remove redundant dtype conversion in ``scaled_dot_product_attention`` example ([#161613](https://github.com/pytorch/pytorch/pull/161613))
+
 ### devs
 ### Untopiced
-- Support deterministic upsample trilinear backward ([#154239](https://github.com/pytorch/pytorch/pull/154239))
-- Add device check in `mse_loss` ([#155089](https://github.com/pytorch/pytorch/pull/155089))
-- Fused RMSNorm Housekeeping ([#159317](https://github.com/pytorch/pytorch/pull/159317))
-- NLLLoss: validate target is 0D when input is 1D ([#161412](https://github.com/pytorch/pytorch/pull/161412))
+
 ### not user facing
+- Add device check in `mse_loss` ([#155089](https://github.com/pytorch/pytorch/pull/155089))
+- [BE] Make torch.nn.modules.* satisfy the docs coverage test ([#158491](https://github.com/pytorch/pytorch/pull/158491))
+- [BE] More torch.nn docs coverage test (except for torch.nn.parallel) ([#158654](https://github.com/pytorch/pytorch/pull/158654))
 - add test_batchnorn_2D and 3D tests ([#156498](https://github.com/pytorch/pytorch/pull/156498))
 - layernorm tests: Tweak test thresholds for comparing tensors ([#156699](https://github.com/pytorch/pytorch/pull/156699))
 - fix type hints for interpolation functions ([#157202](https://github.com/pytorch/pytorch/pull/157202))
@@ -52,6 +55,6 @@ The categories below are as follows:
 - typo ([#156560](https://github.com/pytorch/pytorch/pull/156560))
 - [Testing] Add MPS to NATIVE_DEVICES ([#153835](https://github.com/pytorch/pytorch/pull/153835))
 - DOC: update CrossEntropyLoss with note and example of incorrect target specification ([#155649](https://github.com/pytorch/pytorch/pull/155649))
-- Removed redundant dtype conversion in scaled_dot_product_attention docstring example ([#161613](https://github.com/pytorch/pytorch/pull/161613))
-- Improve error message for unsupported padding config ([#160866](https://github.com/pytorch/pytorch/pull/160866))
+
+- Fused RMSNorm Housekeeping ([#159317](https://github.com/pytorch/pytorch/pull/159317))
 ### security
